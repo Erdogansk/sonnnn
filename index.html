@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinan Chelik | Bizden İyisininin A*</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff003c;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li {
+    list-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #ff003c;
+    text-shadow: 0 0 10px #ff003c;
+}
+
+/* HERO */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        /* BURAYA KENDİ RESMİNİ KOY */
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url('file:///C:/Users/Lenovo/Desktop/ilkalb%C3%BCm.png');
+        background-size: cover; /* TAM DOLDURUR */
+        background-position: center; /* TAM ORTALAR 🔥 */
+        background-repeat: no-repeat; /* tekrar etmez */
+    }
+
+.hero h1 {
+    font-size: 70px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 20px #ff003c;
+}
+
+.hero p {
+    margin-top: 15px;
+    color: #aaa;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: 1px solid #ff003c;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ff003c;
+    box-shadow: 0 0 20px #ff003c;
+}
+
+/* SECTIONS */
+section {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    width: 250px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff003c;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 15px 0;
+}
+
+/* FOOTER */
+footer {
+    padding: 30px;
+    text-align: center;
+    background: #000;
+    color: #777;
+}
+
+/* ANIMATIONS */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h1>SİNAN CHELİK</h1>
+    <ul>
+        <li>Anasayfa</li>
+        <li>Hakkında</li>
+        <li>Şarkılar</li>
+        <li>Albümler</li>
+        <li>İletişim</li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>SİNAN CHELİK</h1>
+    <p>Rap'in Yeni Sesi</p>
+    <button class="btn">Dinle</button>
+</div>
+
+<section class="fade">
+    <h2>Hakkında</h2>
+    <p>ARŞ GÖR içinden doğan bir ses...  İt kurt çakalı piyasadan silecek bir ruh.</p>
+</section>
+
+<section class="fade">
+    <h2>Şarkılar</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f">
+            <h3>Parça 1</h3>
+            <button class="btn">▶</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2">
+            <h3>Parça 2</h3>
+            <button class="btn">▶</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+            <h3>Parça 3</h3>
+            <button class="btn">▶</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 SİNAN CHELİK | Tüm Hakları SİNAN CHELİKE aittir.
+</footer>
+
+<script>
+const faders = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
